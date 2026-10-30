@@ -14,7 +14,7 @@ public:
     //gets
     std::string getNome() const;
     //metodos exclusivos
-    virtual std::string aplicar(Pokemon& atacante, Pokemon& alvo);
+    virtual std::string aplicar(Pokemon& atacante, Pokemon& alvo) = 0;
 protected:
     int calcularDano(Pokemon& atacante, Pokemon& alvo, int poder);
 };
