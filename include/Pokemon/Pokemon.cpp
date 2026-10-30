@@ -1,5 +1,4 @@
 #include "Pokemon.hpp"
-#include <iostream>
 
 Pokemon::Pokemon(std::string nome, int idPokemon, int vida, int ataque, int defesa, std::string tipo) 
 : _nome(nome), _idPokemon(idPokemon), _vida(vida), _ataque(ataque), _defesa(defesa), _tipo(tipo),
@@ -8,7 +7,10 @@ Pokemon::Pokemon(std::string nome, int idPokemon, int vida, int ataque, int defe
     golpes[1] = nullptr;
  }
 
-Pokemon::~Pokemon() {}
+Pokemon::~Pokemon() {
+    delete golpes[1];
+    delete golpes[0];
+}
 
 //gets
 std::string Pokemon::getNome() const {return _nome;}
