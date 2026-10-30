@@ -8,7 +8,7 @@ class Pokemon{
 private:
     std :: string _nome, _tipo;
     int _idPokemon, _vida, _vidaMaxima, _ataque, _defesa;
-    unsigned int _reducaoProximoAtaque;
+    int _reducaoProximoAtaque;
     bool _fortalecido;
     Golpe* golpes[2];  
 public:
@@ -25,7 +25,7 @@ public:
     int getDefesa() const;
     unsigned int getReducaoProximoAtaque() const;
     bool getFortalecido() const;
-    Golpe* getGolpe(int indice);
+    Golpe* getGolpe(int indice) const;
     //metodos exclusivos
     bool derrotado();
     void definirGolpe(int indice, Golpe* golpe);
