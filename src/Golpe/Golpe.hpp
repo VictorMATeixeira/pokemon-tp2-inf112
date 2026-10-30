@@ -1,8 +1,9 @@
 #ifndef GOLPE_HPP
 #define GOLPE_HPP
 
-#include "Pokemon.hpp"
+#include "../Pokemon/Pokemon.hpp"
 #include <string>
+class Pokemon;
 
 class Golpe{
 private:

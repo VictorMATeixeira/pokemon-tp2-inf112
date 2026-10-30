@@ -23,7 +23,7 @@ public:
     int getIndiceAtivo() const;
     //metodos exclusivos
     bool trocar(int indice);
-    bool perdeu();
+    bool perdeu() const;
     bool usarItem(int item, int alvo);
 };
 
