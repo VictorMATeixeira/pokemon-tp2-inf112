@@ -5,7 +5,8 @@ Um sistema de batalha Pokémon por turnos inspirado nos jogos clássicos da fran
 ---
 
 ## 📸 Demonstração
-
+![Pokémon Menu](menuInicialPokemon.png)
+![Pokémon Seleção](SelecaoPokemon.png)
 ![Pokémon Gameplay](IngamePokemon.png)
 
 ---
