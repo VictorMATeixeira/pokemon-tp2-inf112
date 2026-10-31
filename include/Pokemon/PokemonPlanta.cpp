@@ -1,5 +1,7 @@
 #include "Pokemon.hpp"
 #include "PokemonPlanta.hpp"
+#include <algorithm>
+#include <cmath>
 
 PokemonPlanta::PokemonPlanta(std::string nome, int idPokemon, int vida, int ataque, int defesa) 
 : Pokemon(nome, idPokemon, vida, ataque, defesa, "planta") {
@@ -7,14 +9,13 @@ PokemonPlanta::PokemonPlanta(std::string nome, int idPokemon, int vida, int ataq
 }
 
 int PokemonPlanta::calcularDanoRecebido(int dano, std::string tipoAtacante) {
-     if(dano < 0){
-        return 0;
+    double mult = 1.0;
+
+    if (tipoAtacante == "fogo") {
+        mult = 2.0;
+    } else if (tipoAtacante == "agua") {
+        mult = 0.5;
     }
-    if(tipoAtacante == "agua"){
-        dano /= 2;
-    }
-    else if(tipoAtacante == "fogo"){
-        dano *= 2;
-    }
-    return dano;
+
+    return std::max(1, static_cast<int>(std::round(dano * mult)));
 }
