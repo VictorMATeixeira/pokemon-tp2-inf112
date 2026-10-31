@@ -9,7 +9,7 @@ class Pokemon{
 private:
     std :: string _nome, _tipo;
     int _idPokemon, _vida, _vidaMaxima, _ataque, _defesa;
-    int _reducaoProximoAtaque, _eficacia;//atributo extra para medir a eficacia dos ataques no combate
+    int _reducaoProximoAtaque;
     bool _fortalecido;
     Golpe* golpes[2];  
 public:

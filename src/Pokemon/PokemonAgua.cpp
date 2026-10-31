@@ -20,7 +20,6 @@ int PokemonAgua::calcularDanoRecebido(int dano, std::string tipoAtacante) {
 
     if (tipoAtacante == "fogo") {
         mult = 0.5;
-        _eficacia = 1;
     } else if (tipoAtacante == "eletrico" || tipoAtacante == "planta") {
         mult = 2.0;
     }

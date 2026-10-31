@@ -28,7 +28,7 @@ compilar: raylib
 	    -o lib/.build/pokemon
 
 run: compilar
-	./lib/.build/pokemon
+	cd lib && ./.build/pokemon
 
 clean:
 	rm -rf lib/.build
