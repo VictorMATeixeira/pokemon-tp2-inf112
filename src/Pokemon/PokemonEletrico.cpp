@@ -16,7 +16,7 @@ PokemonEletrico::PokemonEletrico(std::string nome, int idPokemon, int vida, int 
     }    
     definirGolpe(1, new GolpeReducaoAtaque("Onda de Choque", 6));
 }
-
+//calculando o dano por meio de um multiplicador 
 int PokemonEletrico::calcularDanoRecebido(int dano, std::string tipoAtacante) {
     double mult = 1.0;
 

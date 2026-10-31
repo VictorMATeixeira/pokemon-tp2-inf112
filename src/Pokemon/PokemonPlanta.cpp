@@ -16,7 +16,7 @@ PokemonPlanta::PokemonPlanta(std::string nome, int idPokemon, int vida, int ataq
     }    
     definirGolpe(1, new GolpeCura("Semente Sanguessuga", 6, 5));
 }
-
+//calculando o dano por meio de um multiplicador 
 int PokemonPlanta::calcularDanoRecebido(int dano, std::string tipoAtacante) {
     double mult = 1.0;
 

@@ -14,12 +14,13 @@ PokemonAgua::PokemonAgua(std::string nome, int idPokemon, int vida, int ataque, 
     }
     definirGolpe(1, new GolpeCura("Aqua Cura", 6, 5));
 } 
-
+//calculando o dano por meio de um multiplicador 
 int PokemonAgua::calcularDanoRecebido(int dano, std::string tipoAtacante) {
     double mult = 1.0;
 
     if (tipoAtacante == "fogo") {
         mult = 0.5;
+        _eficacia = 1;
     } else if (tipoAtacante == "eletrico" || tipoAtacante == "planta") {
         mult = 2.0;
     }

@@ -18,7 +18,7 @@ PokemonFogo::PokemonFogo(std::string nome, int idPokemon, int vida, int ataque, 
     }    
     definirGolpe(1, new GolpeReducaoAtaque("Cortina de Fumaça", 6));
 }
-
+//calculando o dano por meio de um multiplicador 
 int PokemonFogo::calcularDanoRecebido(int dano, std::string tipoAtacante) {
     double mult = 1.0;
 

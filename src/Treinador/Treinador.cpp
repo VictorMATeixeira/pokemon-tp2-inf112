@@ -114,12 +114,10 @@ bool Treinador::perdeu() const {
 }
 
 bool Treinador::usarItem(int item, int alvo) {
-  if(item < 0 || item >1){
-    return false;
-  }
-  if(alvo < 0 || alvo >2){
-    return false;
-  }
+  if(item < 0 || item >1) return false;
+  if(alvo < 0 || alvo >2) return false;
+  if(itens[item] == nullptr || _equipe[alvo]->derrotado()) return false;
+  
   bool sucesso = itens[item]->usar(*_equipe[alvo]);
   if(sucesso){
     delete itens[item];

@@ -46,8 +46,12 @@ void Pokemon::definirGolpe(int indice, Golpe* golpe) {
         if(golpes[indice]!=nullptr){
             delete golpes[indice];
         }
+         golpes[indice] = golpe;
     }
-    golpes[indice] = golpe;
+    else{
+        delete golpe;
+    }
+    
 }
 
 int Pokemon::perderVida(int quantidade) {
