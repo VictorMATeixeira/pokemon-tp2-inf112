@@ -11,7 +11,7 @@
 #include "Cura.hpp"
 #include "Fortificante.hpp"
 
-Treinador::Treinador(std::string nome, int pokemons[3]) {
+Treinador::Treinador(std::string nome, int pokemons[3]) : _nome(nome) {
   for (int indice = 0; indice < 3; indice++) {
     _equipe[indice] = nullptr;
   }
@@ -65,7 +65,7 @@ Treinador::~Treinador() {
 //gets
 std::string Treinador::getNome() const {return _nome;}
 Pokemon* Treinador::getPokemon(int indice) const {
-  if(indice >=1 && indice <=3){
+  if(indice >=0 && indice <=2){
     return _equipe[indice];
   }
   return nullptr;
@@ -80,7 +80,7 @@ Item* Treinador::getItem(int indice) const {
 }
 
 int Treinador::getIndiceAtivo() const {
-  for(int i=0; i<=3 ;i++){
+  for(int i=0; i<3 ;i++){
     if(_equipe[i]==getAtivo()){
       return i;
     }
