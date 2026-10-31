@@ -43,16 +43,23 @@ Certifique-se de ter o compilador `g++`, `make` e a biblioteca `raylib` instalad
 ```bash
 sudo apt update
 sudo apt install build-essential libraylib-dev
+```
 
-⚙️ Compilação e Execução-
+### ⚙️ Compilação e Execução
 Na raiz do repositório, execute:
 
+```bash
 make run
+```
 
-🔨 Outros Comandos do Makefile-
-
-Apenas compilar: make compilar
-Limpar arquivos do build: make clean
+### 🔨 Outros Comandos do Makefile
+* **Apenas compilar:** `make compilar`
+* **Limpar arquivos do build:** `make clean`
+* **Testar vazamento de memória:**
+```bash
+make compilar
+valgrind --leak-check=full --show-leak-kinds=all ./lib/.build/pokemon
+```
 
 ---
 
