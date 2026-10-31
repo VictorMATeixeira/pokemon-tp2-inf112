@@ -1,11 +1,20 @@
 #include "Pokemon.hpp"
 #include "PokemonEletrico.hpp"
+#include "GolpeDano.hpp"
+#include "GolpeReducaoAtaque.hpp"
 #include <algorithm>
 #include <cmath>
 
 PokemonEletrico::PokemonEletrico(std::string nome, int idPokemon, int vida, int ataque, int defesa) 
 : Pokemon(nome, idPokemon, vida, ataque, defesa, "eletrico") {
-    
+    if (nome == "Pikachu") {
+    definirGolpe(0, new GolpeDano("Choque do Trovão", 12));
+    } else if (nome == "Voltorb") {
+    definirGolpe(0, new GolpeDano("Bola Elétrica", 12));
+    } else if (nome == "Magnemite") {
+    definirGolpe(0, new GolpeDano("Faísca", 12));
+    }    
+    definirGolpe(1, new GolpeReducaoAtaque("Onda de Choque", 6));
 }
 
 int PokemonEletrico::calcularDanoRecebido(int dano, std::string tipoAtacante) {
