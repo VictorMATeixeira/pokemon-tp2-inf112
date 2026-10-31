@@ -1,7 +1,7 @@
 # ⚔️ Pokémon Battle System (TP2 - INF112)
 
 Um sistema de batalha Pokémon por turnos inspirado nos jogos clássicos da franquia (*FireRed / LeafGreen*), desenvolvido em **C++11** utilizando a biblioteca gráfica **Raylib**.
-
+![C++11](https://img.shields.io/badge/C%2B%2B-11-blue.svg) ![Raylib](https://img.shields.io/badge/GUI-Raylib-red.svg) ![Build](https://img.shields.io/badge/Build-Makefile-green.svg)
 ---
 
 ## 📸 Demonstração
