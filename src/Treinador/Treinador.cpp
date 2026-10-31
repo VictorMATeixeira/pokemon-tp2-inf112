@@ -85,6 +85,7 @@ int Treinador::getIndiceAtivo() const {
       return i;
     }
   }
+  return _ativo;
 }
 
 //demais metodos

@@ -1,4 +1,5 @@
 #include "Pokemon.hpp"
+#include "Golpe.hpp"
 
 Pokemon::Pokemon(std::string nome, int idPokemon, int vida, int ataque, int defesa, std::string tipo) 
 : _nome(nome), _idPokemon(idPokemon), _vida(vida), _ataque(ataque), _defesa(defesa), _tipo(tipo),
@@ -33,7 +34,7 @@ Golpe* Pokemon::getGolpe(int indice) const {
     return nullptr;
 }
 //demais metodos
-bool Pokemon::derrotado() {
+bool Pokemon::derrotado() const{
     if(_vida <=0){
         return true;
     }

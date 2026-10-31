@@ -3,6 +3,7 @@
 
 #include "Golpe.hpp"
 #include <string>
+class Golpe;
 
 class Pokemon{
 private:
@@ -27,7 +28,7 @@ public:
     bool getFortalecido() const;
     Golpe* getGolpe(int indice) const;
     //metodos exclusivos
-    bool derrotado();
+    bool derrotado() const;
     void definirGolpe(int indice, Golpe* golpe);
     int perderVida(int quantidade);
     int curar(int quantidade);
