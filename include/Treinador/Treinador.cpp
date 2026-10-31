@@ -7,6 +7,9 @@
 #include "PokemonFogo.hpp"
 #include "PokemonPlanta.hpp"
 #include "Treinador.hpp"
+#include "Item.hpp"
+#include "Cura.hpp"
+#include "Fortificante.hpp"
 
 Treinador::Treinador(std::string nome, int pokemons[3]) {
   for (int indice = 0; indice < 3; indice++) {
@@ -37,6 +40,11 @@ Treinador::Treinador(std::string nome, int pokemons[3]) {
       }
     }
   }
+  //pokemon no indice 0 começa como ativo
+  _ativo = 0;
+  //preset item[0]=cura item[1]=fortificante
+  itens[0] = new Cura();
+  itens[1] = new Fortificante();
 }
 
 Treinador::~Treinador() {
@@ -46,4 +54,75 @@ Treinador::~Treinador() {
       _equipe[i] = nullptr;
     }
   }
+  for(int i=0; i<2; i++){
+    if(itens[i] !=nullptr){
+      delete itens[i];
+      itens[i] = nullptr;
+    }
+  }
+}
+
+//gets
+std::string Treinador::getNome() const {return _nome;}
+Pokemon* Treinador::getPokemon(int indice) const {
+  if(indice >=1 && indice <=3){
+    return _equipe[indice];
+  }
+  return nullptr;
+}
+
+Pokemon* Treinador::getAtivo() const {return _equipe[_ativo];}
+Item* Treinador::getItem(int indice) const {
+  if(indice >=0 && indice <=1){
+    return itens[indice];
+  }
+  return nullptr;
+}
+
+int Treinador::getIndiceAtivo() const {
+  for(int i=0; i<=3 ;i++){
+    if(_equipe[i]==getAtivo()){
+      return i;
+    }
+  }
+}
+
+//demais metodos
+
+bool Treinador::trocar(int indice) {
+  if(indice <0 || indice >2){
+    return false;
+  }
+  if(indice == getIndiceAtivo()){
+    return false;
+  }
+  if(_equipe[indice]->derrotado()){
+    return false;
+  }
+  _ativo = indice;
+  return true;
+}
+
+bool Treinador::perdeu() const {
+  for(int i=0; i<3 ;i++){
+    if(!_equipe[i]->derrotado()){
+      return false;
+    }
+  }
+  return true;
+}
+
+bool Treinador::usarItem(int item, int alvo) {
+  if(item < 0 || item >1){
+    return false;
+  }
+  if(alvo < 0 || alvo >2){
+    return false;
+  }
+  bool sucesso = itens[item]->usar(*_equipe[alvo]);
+  if(sucesso){
+    delete itens[item];
+    itens[item] = nullptr;
+  }
+  return true;
 }
