@@ -10,6 +10,8 @@ Pokemon::Pokemon(std::string nome, int idPokemon, int vida, int ataque, int defe
 Pokemon::~Pokemon() {
     delete golpes[1];
     delete golpes[0];
+    golpes[1] = nullptr;
+    golpes[0] = nullptr;
 }
 
 //gets

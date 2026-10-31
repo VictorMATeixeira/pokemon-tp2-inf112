@@ -38,3 +38,12 @@ Treinador::Treinador(std::string nome, int pokemons[3]) {
     }
   }
 }
+
+Treinador::~Treinador() {
+  for(int i=0 ; i<3 ; i++){
+    if(_equipe[i] !=nullptr){
+      delete _equipe[i];
+      _equipe[i] = nullptr;
+    }
+  }
+}
