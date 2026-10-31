@@ -48,6 +48,8 @@ O código é estruturado de forma modular em diretórios bem definidos:
 ├── pokemons.txt              # Arquivo de dados das estatísticas base dos Pokémons
 └── Makefile                  # Script de compilação e automação
 
+---
+
 ## 🚀 Como Compilar e Executar
 
 ### 1. Pré-requisitos
