@@ -47,3 +47,28 @@ O código é estruturado de forma modular em diretórios bem definidos:
 │   └── apoio/                # Utilitários e manipuladores de arquivos
 ├── pokemons.txt              # Arquivo de dados das estatísticas base dos Pokémons
 └── Makefile                  # Script de compilação e automação
+
+## 🚀 Como Compilar e Executar
+
+### 1. Pré-requisitos
+Certifique-se de que possui o compilador `g++` (com suporte a C++11), o `make` e as bibliotecas de desenvolvimento da Raylib instaladas no ambiente Linux/WSL:
+
+```bash
+sudo apt update
+sudo apt install build-essential libraylib-dev
+
+⚙️ Passo 2: Compilar e Iniciar a Aplicação
+Para compilar todo o código fonte e abrir o jogo imediatamente, execute o comando a seguir na raiz do repositório:
+
+make run
+make compilar
+make clean
+make compilar
+valgrind --leak-check=full --show-leak-kinds=all ./lib/.build/pokemon (opcional)
+
+🛠️ Tecnologias Utilizadas
+
+-Linguagem: C++11
+-Biblioteca Gráfica e Som: Raylib
+-Automação de Build: GNU Make
+-Verificação de Memória: Valgrind
