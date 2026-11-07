@@ -7,6 +7,7 @@ std::string GolpeCura::aplicar(Pokemon& atacante, Pokemon& alvo) {
     int danoCalculado = calcularDano(atacante, alvo, this->_poder);
     int danoEfetivo = alvo.perderVida(danoCalculado);
     int curaEfetiva = atacante.curar(this->_quantidade);
+    //msg exibe o quanto de dano o ataque causou e o quanto o atacante se curou
     return atacante.getNome() + " usou " + this->getNome() + " e causou " + std::to_string(danoEfetivo) + " de dano " +
     atacante.getNome() + " recuperou " + std::to_string(curaEfetiva) + " de vida!";
 }

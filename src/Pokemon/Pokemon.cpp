@@ -6,7 +6,7 @@ Pokemon::Pokemon(std::string nome, int idPokemon, int vida, int ataque, int defe
  _vidaMaxima(vida), _reducaoProximoAtaque(0), _fortalecido(false) {
     golpes[0] = nullptr;
     golpes[1] = nullptr;
- }
+}
 
 Pokemon::~Pokemon() {
     delete golpes[1];
@@ -40,13 +40,13 @@ bool Pokemon::derrotado() const{
     }
     return false;
 }
-
+//aloca dinamicamente um novo golpe na posicao selecionada do array Golpe[2]
 void Pokemon::definirGolpe(int indice, Golpe* golpe) {
     if(indice >=0 && indice <=1){
-        if(golpes[indice]!=nullptr){
+        if(golpes[indice]!=nullptr){//caso haja algum objeto na posicao selecionada o mesmo eh destruido
             delete golpes[indice];
         }
-         golpes[indice] = golpe;
+         golpes[indice] = golpe; //define propriamente o golpe na posicao selecionada
     }
     else{
         delete golpe;
@@ -59,12 +59,12 @@ int Pokemon::perderVida(int quantidade) {
     if(quantidade < 0){
         return 0;
     }
-    int vidaAnterior = _vida;
+    int vidaAnterior = _vida; 
     _vida -= quantidade;
     if(_vida<0){
         _vida=0;
     }
-    return vidaAnterior - _vida;
+    return vidaAnterior - _vida; //retorna a quantidade de vida que de fato foi subtraida 
 }
 
 int Pokemon::curar(int quantidade) {
@@ -78,15 +78,15 @@ int Pokemon::curar(int quantidade) {
     }
     int vidaAnterior = _vida;
     _vida +=quantidade;
-    if(_vida > _vidaMaxima){
+    if(_vida > _vidaMaxima){ //impede extrapolar a vida máxima do pokemon
         _vida = _vidaMaxima;
     }
-    return _vida - vidaAnterior;
+    return _vida - vidaAnterior; //retorna a quantidade de vida que de fato foi incrementada pela cura
 }
 
 void Pokemon::reduzirAtaque(int quantidade){
     if(quantidade > 0){
-        _reducaoProximoAtaque = quantidade;
+        _reducaoProximoAtaque = quantidade; //quantidade padrao definida como 8
     }
 }
 
@@ -110,7 +110,7 @@ bool Pokemon::fortalecer() {
 double Pokemon::consumirFortalecimento() {
     if(_fortalecido){
         _fortalecido = false;
-        return 1.1;
+        return 1.1; //fortalecimento em 10%
     }
     return 1.0;
 }

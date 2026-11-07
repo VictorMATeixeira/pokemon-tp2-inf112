@@ -5,9 +5,10 @@ GolpeReducaoAtaque::GolpeReducaoAtaque(std::string nome, int poder) : Golpe(nome
 std::string GolpeReducaoAtaque::aplicar(Pokemon& atacante, Pokemon& alvo) {
     int danoCalculado = calcularDano(atacante, alvo, this->_poder);
     int danoEfetivo = alvo.perderVida(danoCalculado);
-    if(alvo.derrotado()){
+    if(alvo.derrotado()){ //caso o alvo seja derrotado a reducao de ataque nao eh aplicada
        return atacante.getNome() + " usou " + this->getNome() + " e causou " + std::to_string(danoEfetivo) + " de dano!"; 
     }
+    //reducao de ataque em 8 pontos conforme o padrao definido para golpes que causam reducao
     alvo.reduzirAtaque(8);
     return atacante.getNome() + " usou " + this->getNome() + " e causou " + std::to_string(danoEfetivo)
     + " de dano " + atacante.getNome() + " aplicou uma reducao de dano!";

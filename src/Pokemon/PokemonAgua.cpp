@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <cmath>
 
+//construtor definindo o golpe de cada pokemon pelo nome
 PokemonAgua::PokemonAgua(std::string nome, int idPokemon, int vida, int ataque, int defesa) 
 : Pokemon(nome, idPokemon, vida, ataque, defesa, "agua") { //aquatico 
     if (nome == "Squirtle") {
@@ -24,5 +25,5 @@ int PokemonAgua::calcularDanoRecebido(int dano, std::string tipoAtacante) {
         mult = 2.0;
     }
 
-    return std::max(1, static_cast<int>(std::round(dano * mult)));
+    return std::max(1, static_cast<int>(std::round(dano * mult))); 
 }

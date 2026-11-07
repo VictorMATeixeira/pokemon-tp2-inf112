@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <cmath>
 
+//construtor definindo o golpe de cada pokemon pelo nome
 PokemonPlanta::PokemonPlanta(std::string nome, int idPokemon, int vida, int ataque, int defesa) 
 : Pokemon(nome, idPokemon, vida, ataque, defesa, "planta") {
     if (nome == "Bulbasaur") {

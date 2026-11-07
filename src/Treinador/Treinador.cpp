@@ -46,7 +46,7 @@ Treinador::Treinador(std::string nome, int pokemons[3]) : _nome(nome) {
   itens[0] = new Cura();
   itens[1] = new Fortificante();
 }
-
+//destrutor 
 Treinador::~Treinador() {
   for(int i=0 ; i<3 ; i++){
     if(_equipe[i] !=nullptr){
@@ -116,10 +116,10 @@ bool Treinador::perdeu() const {
 bool Treinador::usarItem(int item, int alvo) {
   if(item < 0 || item >1) return false;
   if(alvo < 0 || alvo >2) return false;
-  if(itens[item] == nullptr || _equipe[alvo]->derrotado()) return false;
+  if(itens[item] == nullptr || _equipe[alvo]->derrotado()) return false; //verifica se o alvo ja nao foi derrotado
   
   bool sucesso = itens[item]->usar(*_equipe[alvo]);
-  if(sucesso){
+  if(sucesso){ //caso haja sucesso no uso ja destruimos o objeto item respectivo
     delete itens[item];
     itens[item] = nullptr;
   }

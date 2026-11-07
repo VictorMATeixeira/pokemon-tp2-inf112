@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <cmath>
 
+//construtor definindo o golpe de cada pokemon pelo nome
 PokemonEletrico::PokemonEletrico(std::string nome, int idPokemon, int vida, int ataque, int defesa) 
 : Pokemon(nome, idPokemon, vida, ataque, defesa, "eletrico") {
     if (nome == "Pikachu") {
